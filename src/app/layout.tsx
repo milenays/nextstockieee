@@ -1,17 +1,17 @@
-// src/app/layout.tsx
-"use client"
+"use client";
 
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
+import React from 'react';
 import Button from '@/components/ui/Button';
 
-export default function RootLayout({ Component, pageProps }: AppProps) {
+const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Button onClick={() => console.log('Button clicked')}>Click Me</Button>
-        <Component {...pageProps} />
+        {children}
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

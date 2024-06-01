@@ -1,9 +1,13 @@
-// src/components/ui/Button.tsx
-"use client"
+"use client";
 
 import React from 'react';
 
-const Button: React.FC<{ onClick: () => void }> = ({ onClick, children }) => {
+interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+}
+
+const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
   return <button onClick={onClick}>{children}</button>;
 };
 
