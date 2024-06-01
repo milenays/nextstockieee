@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 
@@ -39,7 +41,6 @@ export default function Login() {
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email" className="sr-only">

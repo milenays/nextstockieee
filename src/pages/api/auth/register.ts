@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import bcrypt from 'bcryptjs';
+import { NextApiRequest, NextApiResponse } from 'next';
 import clientPromise from '@/lib/mongodb';
+import bcrypt from 'bcryptjs';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -33,5 +33,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   await db.collection('users').insertOne(newUser);
 
-  res.status(201).json({ message: 'User registered successfully' });
+  res.status(201).json({ message: 'User created successfully' });
 }

@@ -1,4 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+// next.config.mjs
+export default {
+    reactStrictMode: true,
+    env: {
+      MONGODB_URI: process.env.MONGODB_URI,
+    },
+  };
+  
