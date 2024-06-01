@@ -1,10 +1,10 @@
-// src/components/ui/Input.tsx
 "use client"
 
-import React from 'react';
+import * as React from "react";
 
-const Input: React.FC<{ placeholder: string }> = ({ placeholder }) => {
-  return <input type="text" placeholder={placeholder} />;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+export const Input: React.FC<InputProps> = ({ className, ...props }) => {
+  const baseStyles = "block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50";
+  return <input className={`${baseStyles} ${className}`} {...props} />;
 };
-
-export default Input;
