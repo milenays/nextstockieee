@@ -44,6 +44,15 @@ export default function UserManagement() {
     }
   };
 
+  const handleRoleChange = async (userId: string, newRole: string) => {
+    try {
+      await axios.put(`/api/users/${userId}`, { role: newRole });
+      fetchUsers();
+    } catch (error) {
+      console.error('Error updating role:', error);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <div className="max-w-2xl w-full space-y-8">
@@ -134,6 +143,14 @@ export default function UserManagement() {
                 <p><strong>Name:</strong> {user.firstName} {user.lastName}</p>
                 <p><strong>Email:</strong> {user.email}</p>
                 <p><strong>Role:</strong> {user.role}</p>
+                <select
+                  value={user.role}
+                  onChange={(e) => handleRoleChange(user._id, e.target.value)}
+                >
+                  <option value="admin">Admin</option>
+                  <option value="warehouse">Warehouse</option>
+                  <option value="accounting">Accounting</option>
+                </select>
               </li>
             ))}
           </ul>
